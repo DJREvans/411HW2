@@ -24,12 +24,12 @@ class ValueColumnGenerator(val ctx : Context) {
         )
         vParams.topMargin = 5
         var value = EditText(ctx)
-        value.id = R.id.first_name
+        value.id = R.id.claim_title
         value.setHint("")
         value.setBackgroundColor(Color.LTGRAY)
         layoutObj.addView(value, vParams)
         value = EditText(ctx)
-        value.id = R.id.last_name
+        value.id = R.id.date
         value.setHint("")
         value.setBackgroundColor(Color.LTGRAY)
         layoutObj.addView(value, vParams)

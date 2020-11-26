@@ -78,6 +78,7 @@ class ObjDetailScreenGenerator(val ctx : Context) {
         val stats = LinearLayout((ctx))
         stats.orientation = LinearLayout. HORIZONTAL
         var lbl3 = TextView(ctx)
+        lbl3.setId(R.id.status)
         lbl3.text = "Status:      <Status Message>"
         lbl3.setTextColor(Color.GREEN)
         lbl3.gravity = Gravity.CENTER

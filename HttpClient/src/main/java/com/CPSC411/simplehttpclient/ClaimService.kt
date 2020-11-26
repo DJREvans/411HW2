@@ -51,7 +51,8 @@ class ClaimService (val ctx : CustomActivity){
             statusCode: Int,
             headers: Array<out Header>?,
             responseBody: ByteArray?
-        )   {
+            )
+        {
             if (responseBody != null) {
                 val respStr = String(responseBody)
                 ctx.refStat("Claim added successfully")
@@ -72,7 +73,9 @@ class ClaimService (val ctx : CustomActivity){
     //adds a claim using ASYNC HTTP
     fun addClaim(jsonstr : String) {
         val client = AsyncHttpClient()
-        val requestUrl = "http://192.168.0.13:8010/ClaimService/collectInfo"
+        val requestUrl = "http://192.168.0.13:8010/ClaimService/add"
+        //client.get(requestUrl, GetAllServiceRespHandler())
+
         val entry = StringEntity(jsonstr)
         client.post(ctx, requestUrl, entry,"application/json", addServiceRespHandler())
     }
