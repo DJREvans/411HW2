@@ -17,11 +17,15 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
+    println("\nstarting...\n")
     //extension
     //@annotation
     //routing constructor takes only one parameter which is a lambda function
     //DSL - Domain Specific Language
     routing {
+        post("/post"){
+            println ("HTTP msg is using POST method with /post")
+        }
 //        this.get("/PersonService/add") {
 //            println("HTTP msg is using GET method with /get")
 //            val fn = call.request.queryParameters["FirstName"]
@@ -64,8 +68,12 @@ fun Application.module(testing: Boolean = false) {
 //            println("HTTP msg is using POST method with /post ${contType} ${str}")
 //            call.respondText("The POST request was successfully processed", status = HttpStatusCode.OK, contentType = ContentType.Text.Plain)
 //        }
+        get("/get"){
+            println ("HTTP msg is using GET method with /get")
+        }
         /////////////////////////////////////////////////////////////////////////////////////////////////
         post("/ClaimService/add") {
+            println("add has been called!...\nProcessing...\n")
             val contType = call.request.contentType()
             val data = call.request.receiveChannel()
             val dataLength = data.availableForRead
